@@ -27,7 +27,7 @@ Implementação de CRUD: C: Create, R: Read, U: Update , D: Delete.
 
 ## 📝 Passos para acessar
 
-* 1- Criar o container do postgres
+* 1- Digitar "docker compose up" no terminal para iniciar um container do postgres
 * 2- Iniciar o servidor spring boot
 * 3- Digitar "npm install" no terminal
 * 4- Digitar "npm run" no terminal
