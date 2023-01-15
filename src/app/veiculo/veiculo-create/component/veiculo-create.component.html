@@ -1,0 +1,60 @@
+<form (ngSubmit)="createVeiculo()">
+  <div>
+    <label for="placa" class="col-sm-2 col-form-label col-form-label-md"
+      >Placa</label
+    >
+    <input
+      class="form-control"
+      id="placa"
+      name="placa"
+      [(ngModel)]="placa"
+      type="text"
+    />
+  </div>
+  <div>
+    <label for="cor" class="col-sm-3 col-form-label col-form-label-md"
+      >Cor</label
+    >
+    <input
+      class="form-control"
+      id="cor"
+      name="cor"
+      [(ngModel)]="cor"
+      type="text"
+    />
+  </div>
+  <div>
+    <label for="anoModelo" class="col-sm-3 col-form-label col-form-label-md"
+      >Ano Modelo</label
+    >
+    <input
+      class="form-control"
+      id="anoModelo"
+      name="anoModelo"
+      [(ngModel)]="anoModelo"
+      type="number"
+    />
+  </div>
+  <div>
+    <label for="marca" class="col-sm-3 col-form-label col-form-label-md"
+      >Marca</label
+    >
+    <select
+      class="form-control"
+      name="marca"
+      id="marca"
+      [(ngModel)]="marca"
+    >
+      <option
+        *ngFor="let marca of marcas"
+        ng-if="marca.id != -1"
+        [value]="marca.id"
+      >
+        {{ marca.sigla }}
+      </option>
+      >
+    </select>
+  </div>
+  <br />
+  <button class="btn btn-success">Salvar</button>
+</form>

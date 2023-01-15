@@ -1,0 +1,122 @@
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Placa</th>
+        <th>Cor</th>
+        <th>Ano modelo</th>
+        <th>Marca</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let veiculo of veiculos" ng-if="veiculo.id != -1">
+        <th>{{ veiculo.id }}</th>
+        <td>{{ veiculo.placa }}</td>
+        <td>{{ veiculo.cor }}</td>
+        <td>{{ veiculo.anoModelo }}</td>
+        <td>{{ getSigla(veiculo.marca) }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-warning"
+            (click)="openModal(editVeiculoModal, veiculo)"
+          >
+            Editar
+          </button>
+          <button
+            type="button"
+            (click)="deleteVeiculo(veiculo.id)"
+            class="btn btn-danger"
+          >
+            Excluir
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #editVeiculoModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="editVeiculoLabel">Editar Marca</h5>
+      <button
+        type="button"
+        class="close"
+        (click)="modal.dismiss()"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <form [formGroup]="editVeiculoForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label for="placa" class="col-sm-4 col-form-label">Placa</label>
+          <div class="col-sm-8">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="placa"
+              id="placa"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="cor" class="col-sm-4 col-form-label">Cor</label>
+          <div class="col-sm-8">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="cor"
+              id="cor"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="anoModelo" class="col-sm-4 col-form-label"
+            >Ano Modelo</label
+          >
+          <div class="col-sm-8">
+            <input
+              type="number"
+              class="form-control"
+              formControlName="anoModelo"
+              id="anoModelo"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="marca" class="col-sm-4 col-form-label">Marca</label>
+          <div class="col-sm-8">
+            <select
+              class="form-control"
+              formControlName="marca"
+              name="marca"
+              id="marca"
+            >
+              <option
+                *ngFor="let marca of marcas"
+                ng-if="marca.id != -1"
+                [value]="marca.id"
+              >
+                {{ marca.sigla }}
+              </option>
+              >
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="modal.dismiss()"
+          >
+            Fechar
+          </button>
+          <button type="submit" class="btn btn-primary">Salvar mudanças</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+</div>

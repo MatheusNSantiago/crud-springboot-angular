@@ -1,0 +1,27 @@
+<form (ngSubmit)="createMarca()">
+  <label for="sigla" class="col-sm-2 col-form-label col-form-label-md"
+    >Sigla</label
+  >
+  <input
+    class="form-control"
+    id="sigla"
+    name="sigla"
+    [(ngModel)]="sigla"
+    type="text"
+  />
+  <br />
+  <div>
+    <label for="descricao" class="col-sm-3 col-form-label col-form-label-md"
+      >Descrição</label
+    >
+    <input
+      class="form-control"
+      id="descricao"
+      name="descricao"
+      type="text"
+      [(ngModel)]="descricao"
+    />
+  </div>
+  <br />
+  <button class="btn btn-success">Salvar</button>
+</form>

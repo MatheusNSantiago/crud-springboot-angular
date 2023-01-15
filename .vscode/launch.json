@@ -15,6 +15,16 @@
       "request": "launch",
       "preLaunchTask": "npm: test",
       "url": "http://localhost:9876/debug.html"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-Tfpc3Application<tfpc3>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.tfpc3.tfpc3.Tfpc3Application",
+      "projectName": "tfpc3",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }

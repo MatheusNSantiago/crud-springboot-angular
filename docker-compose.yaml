@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+    db:
+        container_name: pg
+        image: postgres:alpine
+        environment:
+            POSTGRES_USER: tfpc3
+            POSTGRES_PASSWORD: tfpc3
+            POSTGRES_DB: tfpc3
+        ports:
+            - "5448:5432"
